@@ -1,0 +1,345 @@
+/* Master VS Code Workbench Layout */
+
+.vscode-app {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  overflow: hidden;
+  position: relative;
+}
+
+/* 1. Top Title Bar */
+.vscode-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--titlebar-height);
+  background-color: var(--bg-titlebar);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 10px;
+  font-size: 12px;
+  user-select: none;
+  z-index: 50;
+  flex-shrink: 0;
+}
+
+.titlebar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.window-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.window-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  transition: opacity 0.15s ease;
+}
+
+.window-dot.close { background-color: #ff5f56; }
+.window-dot.minimize { background-color: #ffbd2e; }
+.window-dot.maximize { background-color: #27c93f; }
+
+.vscode-icon-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+}
+
+.titlebar-center {
+  flex: 1;
+  max-width: 520px;
+  margin: 0 16px;
+}
+
+.command-search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 22px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  color: var(--text-secondary);
+  font-size: 11.5px;
+  padding: 0 10px;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.command-search-btn:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+  border-color: var(--accent-blue);
+  color: var(--text-primary);
+}
+
+.command-shortcut {
+  margin-left: auto;
+  font-size: 10px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 1px 4px;
+  border-radius: 3px;
+  color: var(--text-muted);
+}
+
+.titlebar-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.titlebar-tool-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 24px;
+  border-radius: 3px;
+  color: var(--text-secondary);
+  transition: all 0.15s ease;
+}
+
+.titlebar-tool-btn:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-bright);
+}
+
+.titlebar-tool-btn.active {
+  color: var(--accent-light);
+  background-color: var(--bg-selected);
+}
+
+/* 2. Main Workbench Area */
+.vscode-workspace {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Activity Bar (Left 48px) */
+.vscode-activitybar {
+  width: var(--activitybar-width);
+  background-color: var(--bg-activity);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+  flex-shrink: 0;
+  z-index: 40;
+}
+
+.activity-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  gap: 2px;
+}
+
+.activity-item {
+  position: relative;
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.activity-item:hover {
+  color: var(--text-bright);
+}
+
+.activity-item.active {
+  color: var(--text-bright);
+}
+
+.activity-item.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--text-bright);
+}
+
+.activity-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background-color: var(--accent-blue);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  border-radius: 8px;
+  min-width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+}
+
+/* Sidebar Container */
+.vscode-sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 30;
+  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s ease;
+}
+
+.vscode-sidebar.collapsed {
+  width: 0px !important;
+  border-right: none;
+  visibility: hidden;
+}
+
+.sidebar-header {
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.sidebar-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sidebar-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.sidebar-action-btn:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-bright);
+}
+
+.sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* 3. Editor Workbench (Tabs + Code/Preview + Terminal) */
+.vscode-editor-workbench {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--bg-editor);
+  position: relative;
+  min-width: 0;
+}
+
+.vscode-editor-split {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  min-height: 0;
+}
+
+/* Main Editor Content Area */
+.vscode-editor-main {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  min-height: 0;
+}
+
+/* Terminal Panel at Bottom */
+.vscode-terminal-panel {
+  background-color: var(--bg-terminal);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: height 0.15s ease;
+  overflow: hidden;
+  z-index: 25;
+}
+
+.vscode-terminal-panel.collapsed {
+  height: 0px !important;
+  border-top: none;
+  display: none;
+}
+
+/* 4. Bottom Status Bar */
+.vscode-statusbar {
+  height: var(--statusbar-height);
+  background-color: var(--bg-statusbar);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  font-size: 11px;
+  user-select: none;
+  z-index: 50;
+  flex-shrink: 0;
+}
+
+.statusbar-left, .statusbar-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.statusbar-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 100%;
+  padding: 0 7px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  white-space: nowrap;
+}
+
+.statusbar-item:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+}

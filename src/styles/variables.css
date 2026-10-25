@@ -1,0 +1,197 @@
+:root {
+  /* VS Code Core Colors */
+  --bg-main: #1E1E1E;
+  --bg-editor: #1E1E1E;
+  --bg-sidebar: #252526;
+  --bg-activity: #333333;
+  --bg-activity-active: #252526;
+  --bg-tab: #2D2D2D;
+  --bg-tab-active: #1E1E1E;
+  --bg-tab-hover: #2b2b2b;
+  --bg-statusbar: #007ACC;
+  --bg-terminal: #181818;
+  --bg-titlebar: #323233;
+  --bg-input: #3C3C3C;
+  --bg-dropdown: #252526;
+  --bg-hover: rgba(255, 255, 255, 0.07);
+  --bg-selected: rgba(255, 255, 255, 0.12);
+  --bg-card: #252526;
+  --bg-card-alt: #1e1e1e;
+
+  /* Borders & Dividers */
+  --border-color: #3C3C3C;
+  --border-subtle: #2d2d2d;
+  --border-focus: #007ACC;
+
+  /* Typography & Syntax */
+  --text-primary: #CCCCCC;
+  --text-secondary: #858585;
+  --text-muted: #606060;
+  --text-bright: #FFFFFF;
+
+  --accent-blue: #007ACC;
+  --accent-hover: #1F8AD2;
+  --accent-light: #4FC1FF;
+
+  --js-yellow: #DCDCAA;
+  --string-orange: #CE9178;
+  --keyword-purple: #C586C0;
+  --function-blue: #DCDCAA;
+  --comment-green: #6A9955;
+  --variable-light-blue: #9CDCFE;
+  --terminal-green: #4EC9B0;
+  --error-red: #F44747;
+  --warning-orange: #CCA700;
+  --info-blue: #75BEFF;
+
+  /* Fonts */
+  --font-code: "JetBrains Mono", "Fira Code", "Cascadia Code", Consolas, "Courier New", monospace;
+  --font-ui: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Layout Dimensions */
+  --titlebar-height: 35px;
+  --activitybar-width: 48px;
+  --sidebar-width: 250px;
+  --statusbar-height: 24px;
+  --tab-height: 35px;
+  --terminal-height: 240px;
+
+  /* Settings Variables */
+  --editor-font-size: 13.5px;
+  --editor-line-height: 1.6;
+}
+
+/* Theme: Monokai */
+body[data-theme="monokai"] {
+  --bg-main: #272822;
+  --bg-editor: #272822;
+  --bg-sidebar: #1e1f1c;
+  --bg-activity: #191a17;
+  --bg-tab: #1e1f1c;
+  --bg-tab-active: #272822;
+  --bg-statusbar: #75715e;
+  --bg-titlebar: #191a17;
+  --border-color: #3e3d32;
+  --accent-blue: #a6e22e;
+  --text-primary: #f8f8f2;
+  --string-orange: #e6db74;
+  --keyword-purple: #f92672;
+  --terminal-green: #a6e22e;
+}
+
+/* Theme: Dracula */
+body[data-theme="dracula"] {
+  --bg-main: #282a36;
+  --bg-editor: #282a36;
+  --bg-sidebar: #21222c;
+  --bg-activity: #191a21;
+  --bg-tab: #21222c;
+  --bg-tab-active: #282a36;
+  --bg-statusbar: #6272a4;
+  --bg-titlebar: #191a21;
+  --border-color: #44475a;
+  --accent-blue: #bd93f9;
+  --text-primary: #f8f8f2;
+  --string-orange: #f1fa8c;
+  --keyword-purple: #ff79c6;
+  --terminal-green: #50fa7b;
+}
+
+/* Theme: One Dark Pro */
+body[data-theme="onedark"] {
+  --bg-main: #282c34;
+  --bg-editor: #282c34;
+  --bg-sidebar: #21252b;
+  --bg-activity: #1b1d23;
+  --bg-tab: #21252b;
+  --bg-tab-active: #282c34;
+  --bg-statusbar: #4078f2;
+  --bg-titlebar: #1b1d23;
+  --border-color: #3a3f4b;
+  --accent-blue: #61afef;
+  --text-primary: #abb2bf;
+  --string-orange: #98c379;
+  --keyword-purple: #c678dd;
+  --terminal-green: #98c379;
+}
+
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  user-select: none;
+}
+
+/* Monospace default for code classes */
+code, pre, .mono {
+  font-family: var(--font-code);
+}
+
+/* VS Code Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(121, 121, 121, 0.35);
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 100, 100, 0.7);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 1px solid var(--accent-blue);
+}
+
+input, textarea {
+  font-family: inherit;
+  color: var(--text-bright);
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  outline: none;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--accent-blue);
+}
+
+a {
+  color: var(--accent-light);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
